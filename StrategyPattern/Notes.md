@@ -1,0 +1,21 @@
+- Why: I want to change behavior without changing the object using it, reduces code duplication, simplifies logic, increases cohesion (class has single responsibility) and decrease coupling (classes depend on each other), testing becomes easier
+- When to use:
+  - when you have multiple algorithms that can be applied to the same problem, and you want to choose the best one for a given situation
+  - when you want to avoid hard-coding the behavior of your classes, and instead make them more flexible and adaptable
+- When to avoid:
+  - as it adds overhead to our code we should avoid it when we have just 1 algorithm or fixed set of algorithms which won't change
+- Components: Interface (declare behaviour), ConcreteStrategy (different implementations of the behaviour), Context (uses a strategy, does not know which one exactly)
+- Relation: Context has a IStrategy, ConcreteStrategy is a IStrategy 
+- When to use:
+  - when lots of if/else
+  - switching algorithm based on types
+  - behaviour changing at runtime
+- SOLID friendly strategy:
+  - Open closed principle: add new strategy, no need to change context
+  - Single responsibility: each algorithm lives in its own class
+  - Dependency inversion: Context depends on an interface, not implementation
+- eg.: Google Maps use different strategies for time-based-on-distance calculation for cycling, walking, car, public transport, etc.
+- If conditions are based on behavior, prefer Strategy. If based on state, think State pattern.
+- Common interview questions:
+  - Why not use inheritance? Static not dynamic
+  - Difference between strategy and state : strategy chosen by client, state changes internally based on state transitions
