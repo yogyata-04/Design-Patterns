@@ -1,0 +1,21 @@
+- **Why**: Centralizes state change logic, Eliminates polling (observers don’t keep checking), Improves extensibility (new observers can be added easily), Makes systems reactive and event-driven
+- **When to use**:
+  - When multiple objects depend on the state of another object
+  - When you want to broadcast events without knowing who receives them
+  - When building event-driven systems, UI updates, notifications, listeners
+- **When to avoid**:
+  - When there are very few dependencies and they are unlikely to change
+  - When update order matters a lot (can become hard to control)
+  - When observers are complex → can lead to hard-to-debug cascades
+  - If notification frequency is very high → performance overhead
+- **Components**: subject (observable), observer, concrete subject, concrete observer 
+- **Relation**: subject has many observers, concreteSubject is ISubject, concreteObserver is IObserver
+- **SOLID friendly strategy**:
+  - Open closed principle: add new observer, no need to change subject
+  - Single responsibility: each algorithm lives in its own class, Subject manages state, observers manage reactions
+  - Dependency inversion: subject depends on Observer interface, not concrete observers
+- eg.: YouTube channel (Subject) → Subscribers (Observers), Stock price system → Traders, Dashboards, UI frameworks → Button click listeners, Weather station → Displays (current, forecast, stats)
+- **NOTE:** If conditions are based on behavior, prefer Strategy. If based on state, think State pattern.
+- **Common interview questions:**
+- Is Observer pull or push based? Push: Subject sends data, Pull: Observer fetches data from Subject
+- Problems with Observer? Memory leaks if observers not removed, Unclear update order, Cascade updates
