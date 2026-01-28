@@ -17,5 +17,5 @@
 - eg.: YouTube channel (Subject) → Subscribers (Observers), Stock price system → Traders, Dashboards, UI frameworks → Button click listeners, Weather station → Displays (current, forecast, stats)
 - **NOTE:** If conditions are based on behavior, prefer Strategy. If based on state, think State pattern.
 - **Common interview questions:**
-- Is Observer pull or push based? Push: Subject sends data, Pull: Observer fetches data from Subject
+- Is Observer pull or push based? BOTH Push: Subject sends data, Pull: Observer fetches data from Subject
 - Problems with Observer? Memory leaks if observers not removed, Unclear update order, Cascade updates
